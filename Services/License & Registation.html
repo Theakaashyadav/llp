@@ -3,281 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start A Business - KanoonPath</title>
+<title>KanoonPath - Start A Business</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="service.css">
-<!-- <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-:root{
-  --orange:#ff7a18;
-  --orange2:#ff9a3c;
-  --blue:#2563eb;
-  --dark:#0f172a;
+<style>
+
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4;
+  overflow-x: hidden;
 }
 
-body{
-  background:#f8fafc;
+/* ===== ANIMATED BACKGROUND ===== */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  animation: float 8s infinite alternate ease-in-out;
 }
 
-/* subtle gradient background */
-body::before{
-  content:"";
-  position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,rgba(255,122,24,0.15),transparent);
-  top:-150px;
-  left:-150px;
-  z-index:-1;
+body::before {
+  background: #F57C20;
+  top: -100px;
+  left: -100px;
 }
 
-body::after{
-  content:"";
-  position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,rgba(37,99,235,0.15),transparent);
-  bottom:-150px;
-  right:-150px;
-  z-index:-1;
+body::after {
+  background: #1E8C8F;
+  bottom: -100px;
+  right: -100px;
 }
 
-.header{
-  text-align:center;
-  padding:70px 20px 30px;
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(40px); }
 }
 
-.header h1{
-  font-size:40px;
-  font-weight:700;
-  background:linear-gradient(90deg,var(--orange),var(--blue));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.7);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.header p{
-  margin-top:10px;
-  color:#64748b;
-  font-size:15px;
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  background: linear-gradient(90deg,#F57C20,#1E8C8F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* GRID */
-.services-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  padding:40px 60px 70px;
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding: 60px 20px 20px;
 }
 
-/* CARD */
-.service-card{
-  background:#ffffff;
-  border-radius:18px;
-  padding:28px 22px;
-  transition:all .3s ease;
-  border:1px solid #e2e8f0;
-  position:relative;
-  overflow:hidden;
+.header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  background: linear-gradient(90deg,#F57C20,#1E8C8F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* gradient border effect */
-.service-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:18px;
-  padding:1px;
-  background:linear-gradient(120deg,var(--orange),var(--blue));
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  opacity:0;
-  transition:.3s;
+.header p {
+  color: #555;
 }
 
-.service-card:hover::before{opacity:1}
-
-.service-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 15px 40px rgba(0,0,0,0.12);
+/* ===== GRID ===== */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* ICON CIRCLE */
-.icon{
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,var(--orange),var(--blue));
-  color:#fff;
-  font-size:20px;
-  margin-bottom:12px;
+/* ===== CARD ===== */
+.service-card {
+  position: relative;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  overflow: hidden;
+  animation: fadeUp 0.8s ease forwards;
 }
 
-.service-card h3{
-  font-size:16px;
-  margin-bottom:8px;
-  color:var(--dark);
+/* TOP BAR */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg,#F57C20,#1E8C8F);
 }
 
-.service-card p{
-  font-size:13px;
-  color:#64748b;
-  margin-bottom:12px;
+/* LIGHT EFFECT */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.4), transparent 60%);
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none; /* <- Add this line */
 }
 
-/* BUTTON */
-.service-card a{
-  display:inline-block;
-  padding:8px 18px;
-  border-radius:20px;
-  background:linear-gradient(90deg,var(--orange),var(--blue));
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  transition:.3s;
+.service-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
 }
 
-.service-card a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 18px rgba(0,0,0,0.2);
+.service-card:hover::after {
+  opacity: 1;
 }
 
-/* hover shine */
-.service-card::after{
-  content:"";
-  position:absolute;
-  top:0;left:-100%;
-  width:100%;height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
-  transition:.6s;
+/* ===== ICON ===== */
+.icon i {
+  font-size: 36px;
+  background: linear-gradient(90deg,#F57C20,#1E8C8F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.3s;
 }
 
-.service-card:hover::after{left:100%}
-
-@media(max-width:768px){
-  .services-container{padding:20px}
-  .header h1{font-size:30px}
+.service-card:hover .icon i {
+  transform: scale(1.2) rotate(5deg);
 }
 
-</style> -->
+/* ===== TEXT ===== */
+.service-card h3 {
+  margin: 12px 0;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===== BUTTON STYLE ===== */
+.service-card button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  background: linear-gradient(90deg,#F57C20,#1E8C8F);
+  transition: all 0.3s ease;
+  cursor: pointer; /* make clickable */
+}
+
+.service-card button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+</style>
 </head>
 
 <body>
 
+<div class="navbar">
+  <div class="logo">KanoonPath</div>
+</div>
+
 <div class="header">
-  <h1>License & Registration</h1>
-  <p>Select a service to continue</p>
+  <h1>Start Your Business</h1>
+  <p>Choose the right structure and begin your journey 🚀</p>
 </div>
 
 <div class="services-container">
 
   <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-certificate"></i></div>
-    <h3>Trademark Registration</h3>
-    <p>Protect your brand identity legally</p>
-    <a href="/License and Registration/trademark_registration.html">Explore</a>
+    <div class="icon"><i class="fa-solid fa-user"></i></div>
+    <h3>Sole Proprietorship</h3>
+    <p>Perfect for individuals starting small</p>
+    <button onclick="location.href='Services/start-a-business/sole_proprietorship.html'">Explore</button>
   </div>
 
   <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-industry"></i></div>
-    <h3>MSME Registration</h3>
-    <p>Get benefits for small businesses</p>
-    <a href="/License and Registration/MSME_registration.html">Explore</a>
+    <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+    <h3>Partnership</h3>
+    <p>Grow together with shared ownership</p>
+    <button onclick="location.href='/Services/Start A Business/partnership.html'">Explore</button>
   </div>
 
   <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-shop"></i></div>
-    <h3>Shops & Establishment</h3>
-    <p>Register your business legally</p>
-    <a href="/License and Registration/shops_establishment.html">Explore</a>
+    <div class="icon"><i class="fa-solid fa-building"></i></div>
+    <h3>LLP Registration</h3>
+    <p>Flexibility with limited liability</p>
+    <button onclick="location.href='/Services/Start A Business/limited_liability.html'">Explore</button>
   </div>
 
   <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-award"></i></div>
-    <h3>ISO Certification</h3>
-    <p>Improve credibility and standards</p>
-    <a href="/License and Registration/ISO.html">Explore</a>
+    <div class="icon"><i class="fa-solid fa-user-tie"></i></div>
+    <h3>One Person Company</h3>
+    <p>Corporate benefits for solo founders</p>
+    <button onclick="location.href='/Services/Start A Business/one_person.html'">Explore</button>
   </div>
 
   <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-users"></i></div>
-    <h3>PF / ESI Registration</h3>
-    <p>Employee benefits compliance</p>
-    <a href="/License and Registration/PF_ESI.html">Explore</a>
+    <div class="icon"><i class="fa-solid fa-city"></i></div>
+    <h3>Private Limited</h3>
+    <p>Most popular business structure</p>
+    <button onclick="location.href='/Services/Start A Business/private_limited.html'">Explore</button>
   </div>
 
   <div class="service-card">
     <div class="icon"><i class="fa-solid fa-globe"></i></div>
-    <h3>Import Export Code</h3>
-    <p>Start international trade easily</p>
-    <a href="/License and Registration/import_export.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-utensils"></i></div>
-    <h3>FSSAI Registration</h3>
-    <p>Food business legal approval</p>
-    <a href="/License and Registration/FSSAI.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-    <h3>NGO Darpan</h3>
-    <p>Register NGO with government portal</p>
-    <a href="/License and Registration/NGO_darpan.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-handshake-angle"></i></div>
-    <h3>CSR Registration</h3>
-    <p>Corporate social responsibility setup</p>
-    <a href="/License and Registration/CSR_registration.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-file-invoice"></i></div>
-    <h3>80G & 12A</h3>
-    <p>Tax exemption for NGOs</p>
-    <a href="/License and Registration/80G_and_12A.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-earth-asia"></i></div>
-    <h3>FCRA Registration</h3>
-    <p>Receive foreign donations legally</p>
-    <a href="/License and Registration/FCRA_registration.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-shield"></i></div>
-    <h3>Private Security License</h3>
-    <p>Start a security agency business</p>
-    <a href="/License and Registration/private_security.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
-    <h3>Startup India</h3>
-    <p>Register your startup with benefits</p>
-    <a href="/License and Registration/startup.html">Explore</a>
-  </div>
-
-  <div class="service-card">
-    <div class="icon"><i class="fa-solid fa-key"></i></div>
-    <h3>Digital Signature (DSC)</h3>
-    <p>Secure online document signing</p>
-    <a href="/License and Registration/digital-signature.html">Explore</a>
+    <h3>Public Limited</h3>
+    <p>For large-scale enterprises</p>
+    <button onclick="location.href='/Services/Start A Business/public_limited.html'">Explore</button>
   </div>
 
 </div>
+
+<div class="footer">
+  © 2026 KanoonPath • Legal Filing Made Simple
+</div>
+
+<!-- ===== INTERACTIVE GLOW SCRIPT ===== -->
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+  });
+});
+</script>
 
 </body>
 </html>
