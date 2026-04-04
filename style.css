@@ -310,11 +310,13 @@ body{background:#ffffff;color:#222;}
 
 /* LOGO IMAGE */
 .logo img{
-    height:58px;
-    width:auto;
-    object-fit:contain;
-    cursor:pointer;
-    transition:0.3s ease;
+    height: 58px;
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    transform: scale(1.2);   /* 👈 zoom size (1.1–1.3 ideal) */
 }
 
 .logo img:hover{
@@ -420,13 +422,13 @@ body{background:#ffffff;color:#222;}
 .nav-links a{
     color:#0a2342;
     text-decoration:none;
-    font-size:16px;
-    font-weight:600;
-    padding:8px 14px;
+    font-size:18px;
+    font-weight:700;        /* bolder */
+    letter-spacing:0.5px;   /* clean spacing */
+    padding:10px 16px;      /* slightly bigger clickable area */
     border-radius:10px;
     transition:all .35s ease;
 }
-
 .nav-links a:hover{
     background:#0077b6;
     color:#ffffff;
